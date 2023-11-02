@@ -1,3 +1,9 @@
+body{
+font-size: 16px;
+}
+
+
+
 .calculator {
     width: 100%; /* El ancho se ajusta al 100% del contenedor padre */
     max-width: 300px; /* Ancho máximo para evitar que la calculadora sea demasiado ancha en pantallas grandes */
@@ -12,7 +18,7 @@
 
 /* Estilos para el pie de página */
 footer {
-    font-size: 18px; /* Tamaño de fuente más grande */
+    font-size: 14px; /* Tamaño de fuente más grande */
     font-family: "Arial", sans-serif; /* Cambiar a una fuente personalizada si lo deseas */
     text-align: center; /* Centrar el texto */
     margin-top: 10px; /* Agregar margen superior para separar el pie de página de la calculadora */
@@ -25,9 +31,11 @@ input[type="text"] {
 }
 
 button {
-    width: 20%; /* Cada botón ocupa el 20% del ancho de la calculadora */
+    width: 30%; /* Cada botón ocupa el 20% del ancho de la calculadora */
     height: 50px;
     margin: 5px;
     font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
     cursor: pointer;
 }
