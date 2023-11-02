@@ -1,3 +1,36 @@
+function addToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculate() {
+            var display = document.getElementById('display').value;
+            try {
+                document.getElementById('display').value = eval(display);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+
+        document.body.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                calculate(); // Si se presiona la tecla "Enter", calcula el resultado
+            } else if (event.key === 'c' || event.key === 'C') {
+                clearDisplay(); // Si se presiona la tecla "C" o "c", borra la pantalla
+            } else if (event.key === 'Escape') {
+                clearDisplay(); // Si se presiona la tecla "Escape", borra la pantalla
+            }  else if (event.key === 'Backspace') {
+                // Si se presiona "Backspace", elimina el último carácter de la pantalla
+                var display = document.getElementById('display');
+                display.value = display.value.slice(0, -1);  
+            } else if (/[0-9\+\-\*\/]/.test(event.key)) {
+                addToDisplay(event.key); // Si se presiona un número o un operador, agrégalo a la pantalla
+            }
+        });
+
 function copyToClipboard() {
     var inputField = document.getElementById('display');
     inputField.select();
