@@ -2,9 +2,17 @@ body{
 font-size: 16px;
 background-image: url('numbers.jpg'); /* Reemplaza 'tu-imagen.jpg' con la ruta o URL de tu imagen */
             background-size: cover; /* Ajusta la imagen al tamaño de la pantalla */
-            background-repeat: no-repeat; /* Evita la repetición de la imagen */
+            background-repeat: repeat; /* Evita la repetición de la imagen */
 }
 
+/* Estilos específicos para dispositivos móviles y tabletas */
+@media (max-width: 767px) {
+    /* Estilos para tamaños de pantalla menores o iguales a 767px (pantallas más pequeñas) */
+    body {
+        background-repeat: repeat; /* Hace que el fondo se repita verticalmente */
+        background-position: center top; 
+    }
+}
 
 .calculator {
     width: 100%; /* El ancho se ajusta al 100% del contenedor padre */
@@ -15,6 +23,20 @@ background-image: url('numbers.jpg'); /* Reemplaza 'tu-imagen.jpg' con la ruta o
     border-radius: 5px;
     box-shadow: 0 0 5px 2px #ccc;
     text-align: center; /* Centra el contenido */
+}
+
+/* Estilos específicos para tamaños de pantalla más pequeños, como móviles y tabletas en modo vertical */
+@media (max-width: 767px) {
+    .calculator {
+        max-width: 100%; /* Se expandirá al ancho de la pantalla */
+    }
+}
+
+/* Estilos específicos para tamaños de pantalla más grandes, como tabletas en modo horizontal y escritorio */
+@media (min-width: 768px) {
+    .calculator {
+        max-width: 300px; /* Mantendrá un ancho máximo de 300px */
+    }
 }
 
 

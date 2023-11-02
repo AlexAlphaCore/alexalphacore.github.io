@@ -1,7 +1,7 @@
-
 function addToDisplay(value) {
-            document.getElementById('display').value += value;
-        }
+    var display = document.getElementById('display');
+    display.value += value;
+}
 
         function clearDisplay() {
             document.getElementById('display').value = '';
