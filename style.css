@@ -1,7 +1,9 @@
 body{
 font-size: 16px;
+background-image: url('numbers.jpg'); /* Reemplaza 'tu-imagen.jpg' con la ruta o URL de tu imagen */
+            background-size: cover; /* Ajusta la imagen al tamaño de la pantalla */
+            background-repeat: no-repeat; /* Evita la repetición de la imagen */
 }
-
 
 
 .calculator {

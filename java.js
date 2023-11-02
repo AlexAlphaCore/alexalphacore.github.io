@@ -1,3 +1,5 @@
+
+
 function addToDisplay(value) {
             document.getElementById('display').value += value;
         }
@@ -75,5 +77,6 @@ buttons.forEach(function (button) {
         } else if (buttonValue === 'Copiar') {
             copyToClipboard();
         }
+        
     });
 });
