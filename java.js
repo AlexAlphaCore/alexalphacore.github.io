@@ -1,5 +1,4 @@
 
-
 function addToDisplay(value) {
             document.getElementById('display').value += value;
         }
@@ -17,21 +16,7 @@ function addToDisplay(value) {
             }
         }
 
-        document.body.addEventListener('keydown', function (event) {
-            if (event.key === 'Enter') {
-                calculate(); // Si se presiona la tecla "Enter", calcula el resultado
-            } else if (event.key === 'c' || event.key === 'C') {
-                clearDisplay(); // Si se presiona la tecla "C" o "c", borra la pantalla
-            } else if (event.key === 'Escape') {
-                clearDisplay(); // Si se presiona la tecla "Escape", borra la pantalla
-            }  else if (event.key === 'Backspace') {
-                // Si se presiona "Backspace", elimina el último carácter de la pantalla
-                var display = document.getElementById('display');
-                display.value = display.value.slice(0, -1);  
-            } else if (/[0-9\+\-\*\/]/.test(event.key)) {
-                addToDisplay(event.key); // Si se presiona un número o un operador, agrégalo a la pantalla
-            }
-        });
+       
 
 function copyToClipboard() {
     var inputField = document.getElementById('display');
@@ -48,21 +33,30 @@ function copyToClipboard() {
 
 document.body.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
-        calculate(); // Si se presiona la tecla "Enter", calcula el resultado
-    } else if (event.key === 'c' || event.key === 'C') {
-        clearDisplay(); // Si se presiona la tecla "C" o "c", borra la pantalla
-    } else if (event.key === 'Escape') {
-        clearDisplay(); // Si se presiona la tecla "Escape", borra la pantalla
-    }  else if (event.key === 'Backspace') {
+        calculate();
+    } else if (event.key === 'c' || event.key === 'C' || event.key === 'Escape') {
+        clearDisplay();
+    } else if (event.key === 'Backspace') {
         // Si se presiona "Backspace", elimina el último carácter de la pantalla
         var display = document.getElementById('display');
-        display.value = display.value.slice(0, -1);  
+        display.value = display.value.slice(0, -1);
     } else if (/[0-9\+\-\*\/]/.test(event.key)) {
-        addToDisplay(event.key); // Si se presiona un número o un operador, agrégalo a la pantalla
+        addToDisplay(event.key);
     }
 });
 
-// Agregar eventos táctiles para los botones
+// Evento táctil para activar el teclado virtual y mostrar el cursor
+document.getElementById('display').addEventListener('touchstart', function () {
+    this.focus();
+    document.getElementById('cursor').style.visibility = 'visible'; // Mostrar el cursor
+});
+
+// Evento táctil para desactivar el cursor
+document.getElementById('display').addEventListener('blur', function () {
+    document.getElementById('cursor').style.visibility = 'hidden'; // Ocultar el cursor
+});
+
+// Agregar eventos táctiles para los botones de la calculadora
 var buttons = document.querySelectorAll('.calculator button');
 buttons.forEach(function (button) {
     button.addEventListener('touchstart', function () {
@@ -77,6 +71,5 @@ buttons.forEach(function (button) {
         } else if (buttonValue === 'Copiar') {
             copyToClipboard();
         }
-        
     });
 });
